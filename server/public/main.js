@@ -55,7 +55,6 @@ const createSensor = async (sensor) => {
 //createSensor({ alias: 'z', serialNumber: '', userId: '', image: '' });
 
 
-
 // Update
 const updateSensor = async (sensor) => {
     const putData = {
@@ -81,7 +80,7 @@ const updateSensor = async (sensor) => {
 //setTimeout(() => updateSensor({ _id: '6296f10ea2167d8830537804', alias: 'www', serialNumber: '', userId: '', image: '' }), 3000);
 
 
-
+// Delete
 const deleteSensor = async (sensor) => {   
     try {
         const res = await fetch(`http://localhost:4000/api/sensor/${sensor._id}`, { method: 'DELETE' })
@@ -96,8 +95,6 @@ const deleteSensor = async (sensor) => {
     }
 }
 //setTimeout(() => deleteSensor(sensors[1]), 4000);
-
-
 
 
 
