@@ -1,0 +1,19 @@
+* { 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f0f0f0;
+}
+section {
+    margin: 40px auto;
+    padding: 20px 30px 40px 30px;
+    background-color: #FFFFFF;
+    width: 75%;
+    border-radius: 4px;
+}
+.card {
+    padding-top: 10px;
+    margin: 12px;
+}
