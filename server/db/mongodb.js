@@ -13,8 +13,8 @@ const settings = {
 mongoose.connect(process.env.MONGODB_URI, settings, (err) => {
     if (!err) {
         initialSetup.createSensors();
-        console.log('MongoDB connection succeeded');
+        console.log('MongoDB connected');
     } else {
-        console.log(`Error in MongoDB connection: ${err}`)
+        console.log(`Error in MongoDB connection: ${err}`);
     }
 });

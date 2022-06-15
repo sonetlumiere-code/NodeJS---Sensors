@@ -15,7 +15,7 @@ const sensorController = {
 		sensor.image = '';
 		sensor.save((err, sensorStored) => {
 			if (err) return res.status(500).send({ message: 'Error al guardar el documento' });
-			if (!sensorStored) return res.status(404).send({ message: 'No se ha podido guardar el documento' });
+			if (!sensorStored) return res.status(404).send({ message: 'No se pudo guardar el documento' });
 			return res.status(200).send({ sensor: sensorStored });
 		});
 	},
@@ -40,8 +40,12 @@ const sensorController = {
 
 	updateSensor: (req, res) => {
 		let sensorId = req.params.id;
-		let update = req.body;
-		Sensor.findByIdAndUpdate(sensorId, update, { new: true }, (err, sensorUpdated) => {
+		let { alias, serialNumber, userId } = req.body;
+		let sensor = {};
+		sensor.alias = alias;
+		sensor.serial_number = serialNumber;
+		sensor.user_id = userId;
+		Sensor.findByIdAndUpdate(sensorId, sensor, { new: true }, (err, sensorUpdated) => {
 			if (err) return res.status(500).send({ message: 'Error al actualizar' });
 			if (!sensorUpdated) return res.status(404).send({ message: 'No existe el documento para actualizar' });
 			return res.status(200).send({ sensor: sensorUpdated });
@@ -50,10 +54,9 @@ const sensorController = {
 
 	deleteSensor: (req, res) => {
 		let sensorId = req.params.id;
-		console.log(sensorId)
 		Sensor.findById(sensorId, (err, res) =>{
 			if (err) return res.status(500).send({ message: 'Error al buscar documento' });
-			if (res.image){
+			if (res.image) {
 				fs.unlink('./uploads/' + res.image, (err) => {
 					if (err) return res.status(500).send({ message: 'No se ha podido borrar la imagen' });
 				})
@@ -78,7 +81,7 @@ const sensorController = {
 			let fileExt = extSplit[1].toLowerCase();
 			Sensor.findById(sensorId, (err, res) => {
 				if (err) return res.status(500).send({ message: 'Error al buscar documento' });
-				if (res.image){
+				if (res.image) {
 					fs.unlink('./uploads/' + res.image, (err) => {
 						if (err) return res.status(500).send({ message: 'No se ha podido borrar la imagen' });
 					})
@@ -105,7 +108,7 @@ const sensorController = {
 		let path_file = './uploads/' + file;
 
 		fs.stat(path_file, (exists) => {
-			if (exists){
+			if (exists) {
 				return res.sendFile(path.resolve(path_file));
 			} else {
 				return res.status(200).send({ message: 'No existe la imagen' });
