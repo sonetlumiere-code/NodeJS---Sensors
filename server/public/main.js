@@ -118,7 +118,7 @@ const CRUD = {
         const formData = new FormData(updateForm);
         const sensor = new Sensor(formData.get('alias'), formData.get('serialNumber'), formData.get('userId'), '');
         await apiService.updateSensor(sensor, formData.get('id'));
-        UI.renderAlert('Sensor actualizado', 'alert-warning');
+        UI.renderAlert('Sensor actualizado', 'alert-info');
         this.getSensors();
     },
 
@@ -181,9 +181,9 @@ const UI = {
         let tHeadTh1 = document.createElement('th');
         tHeadTh1.setAttribute('scope', 'col');
         tHeadTh1.textContent = '#';
-        let tHeadTh2 = document.createElement('th');
-        tHeadTh2.setAttribute('scope', 'col');
-        tHeadTh2.textContent = 'Id';
+        // let tHeadTh2 = document.createElement('th');
+        // tHeadTh2.setAttribute('scope', 'col');
+        // tHeadTh2.textContent = 'Id';
         let tHeadTh3 = document.createElement('th');
         tHeadTh3.setAttribute('scope', 'col');
         tHeadTh3.textContent = 'Alias';
@@ -200,7 +200,7 @@ const UI = {
         tHeadTh7.setAttribute('scope', 'col');
         tHeadTh7.textContent = 'Delete';
         tHeadTr.appendChild(tHeadTh1);
-        tHeadTr.appendChild(tHeadTh2);
+        // tHeadTr.appendChild(tHeadTh2);
         tHeadTr.appendChild(tHeadTh3);
         tHeadTr.appendChild(tHeadTh4);
         tHeadTr.appendChild(tHeadTh5);
@@ -214,8 +214,8 @@ const UI = {
             let tableBodyTh = document.createElement('th');
             tableBodyTh.setAttribute('scope', 'row');
             tableBodyTh.textContent = i + 1;
-            let tableBodyTd1 = document.createElement('td');
-            tableBodyTd1.textContent = item._id;
+            // let tableBodyTd1 = document.createElement('td');
+            // tableBodyTd1.textContent = item._id;
             let tableBodyTd2 = document.createElement('td');
             tableBodyTd2.textContent = item.alias;
             let tableBodyTd3 = document.createElement('td');
@@ -242,7 +242,7 @@ const UI = {
             let tableBodyTd6 = document.createElement('td');
             tableBodyTd6.appendChild(btnDelete);
             tableBodyTr.appendChild(tableBodyTh);
-            tableBodyTr.appendChild(tableBodyTd1);
+            // tableBodyTr.appendChild(tableBodyTd1);
             tableBodyTr.appendChild(tableBodyTd2);
             tableBodyTr.appendChild(tableBodyTd3);
             tableBodyTr.appendChild(tableBodyTd4);

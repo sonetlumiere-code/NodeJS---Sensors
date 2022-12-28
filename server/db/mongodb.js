@@ -10,6 +10,8 @@ const settings = {
     serverSelectionTimeoutMS: 90000
 };
 
+mongoose.set('strictQuery', false);
+
 mongoose.connect(process.env.MONGODB_URI, settings, (err) => {
     if (!err) {
         initialSetup.createSensors();
