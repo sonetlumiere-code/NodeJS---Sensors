@@ -1,1 +1,0 @@
-::1	[2022/12/27 23:34:00]	d9d56701-9028-460c-92dc-eb9fce315891	Error: Not trusted IP: ::1 tryed to connect
