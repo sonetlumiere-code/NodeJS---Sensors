@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "lint": "npx eslint . --ext .js,.jsx",
+    "lint:fix": "npx eslint . --ext .js,.jsx --fix"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +27,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^2.0.15"
   }
 }
